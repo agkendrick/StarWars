@@ -15,19 +15,21 @@
 </script>
 
 <template>
-    <div class="navigation">
-      <RouterLink class="nav-link" to="/people">People</RouterLink>
-      <button class="toggle" @click="toggleDarkMode">Turn dark mode {{ darkMode ? "off" : "on" }}</button>
-    </div>
-    <hr />
-  <Suspense>
-    <template #default>
-      <RouterView />
-    </template>
-    <template #fallback>
-      <h2>Loading...</h2>
-    </template>
-  </Suspense>
+  <div class="navigation">
+    <RouterLink class="nav-link" to="/people">People</RouterLink>
+    <button class="toggle" @click="toggleDarkMode">Turn dark mode {{ darkMode ? "off" : "on" }}</button>
+  </div>
+  <hr />
+  <RouterView v-slot="{ Component }">
+    <Suspense timeout="0">
+      <template #default>
+        <component :is="Component" />
+      </template>
+      <template #fallback>
+        <h1>Loading...</h1>
+      </template>
+    </Suspense>
+  </RouterView>
 </template>
 
 <style>

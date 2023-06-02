@@ -15,6 +15,7 @@
         vehicleCount: "Starship/Vehicle Count"
     }
 
+    const loading = ref(false)
     const items = ref(mapItems(results))
     const nextPage = ref(next)
     const previousPage = ref(previous)
@@ -28,17 +29,20 @@
     }
 
     async function loadPage(link: string) {
+        loading.value = true
         const { results, next, previous } = await getPeople(link)
         items.value = mapItems(results)
         nextPage.value = next
         previousPage.value = previous
+        loading.value = false
     }
 
 </script>
 
 <template>
-    <div>
+    <div v-if="!loading">
         <h1>People</h1>
         <PagedList @load-page="loadPage" :list-items="items" :next="nextPage" :previous="previousPage" :display-names="displayNames" />
-    </div>    
+    </div> 
+    <h1 v-if="loading">Loading...</h1>   
 </template>
