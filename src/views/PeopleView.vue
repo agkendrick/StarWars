@@ -40,11 +40,7 @@
 
 <template>
     <div>
-        <h1>This is the people view</h1>
+        <h1>People</h1>
         <PagedList @load-page="loadPage" :list-items="items" :next="nextPage" :previous="previousPage" :display-names="displayNames" />
     </div>    
 </template>
-
-<style>
-
-</style>

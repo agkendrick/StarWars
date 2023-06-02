@@ -14,7 +14,7 @@
 
 <template>
     <div>
-        <h1>This is the starship details page</h1>
+        <h1>Starship Details</h1>
         <ul>
             <li><b>Name: </b>{{ name }}</li>
             <li><b>Model: </b>{{ model }} <span v-if="manufacturer != model">({{ manufacturer }})</span></li>
@@ -30,4 +30,6 @@
     </div>
 </template>
 
-<style></style>
+<style>
+
+</style>

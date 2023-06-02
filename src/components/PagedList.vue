@@ -16,17 +16,26 @@
 </script>
 
 <template>
-    <div v-for="item in props.listItems">
+    <div class="nav">
+        <button @click="$emit('loadPage', previous)" v-if="previous">Previous</button>
+        <button @click="$emit('loadPage', next)" v-if="next">Next</button>
+    </div>
+    <div class="list-item" v-for="item in props.listItems">
         <RouterLink :to="item.link">
             <ListItem :display-names="props.displayNames" :item="item" />
         </RouterLink>
     </div>
-    <div>
+    <div class="nav">
         <button @click="$emit('loadPage', previous)" v-if="previous">Previous</button>
         <button @click="$emit('loadPage', next)" v-if="next">Next</button>
     </div>
 </template>
 
 <style scoped>
-
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
 </style>

@@ -14,7 +14,7 @@
 
 <template>
     <div>
-        <h1>This is the vehicle details page</h1>
+        <h1>Vehicle Details</h1>
         <ul>
             <li><b>Name: </b>{{ name }}</li>
             <li><b>Model: </b>{{ model }} <span v-if="manufacturer != model">({{ manufacturer }})</span></li>

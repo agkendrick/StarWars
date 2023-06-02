@@ -29,7 +29,7 @@
 
 <template>
     <div class="person">
-        <h1>Person detail</h1>
+        <h1>Person Details</h1>
         <ul>
           <li><b>Name: </b> {{ name }}</li>
           <li><b>Gender: </b> {{ gender }}</li>
@@ -37,10 +37,10 @@
           <li><b>Birth Year: </b> {{ birth_year }}</li>
           <li><b>Films: </b> {{ filmTitles }}</li>
           <li><b>Starships/Vehicles: </b>
-            <ul v-for="item in starshipsAndVehicles">
-              <RouterLink :to="getVehicleLink(item.url)">
-                <li><b>Name: </b>{{ item.name }} ({{ item.vehicle_class ? "Vehicle" : "Starship" }})</li>
-                <li><b>Model: </b>{{ item.model }}</li>
+            <ul class="sub-list list-item" v-for="item in starshipsAndVehicles">
+              <RouterLink class="vehicle-link" :to="getVehicleLink(item.url)">
+                <li class="sub-list-item"><b>Name: </b>{{ item.name }} ({{ item.vehicle_class ? "Vehicle" : "Starship" }})</li>
+                <li class="sub-list-item"><b>Model: </b>{{ item.model }}</li>
               </RouterLink>
 
             </ul>
@@ -51,6 +51,13 @@
       </div>
 </template>
 
-<style>
+<style scoped>
+  .sub-list {
+    margin: 1em 0;
+  }
+  .sub-list-item {
+    margin-left: 1em;
+    list-style: circle;
+  }
 
 </style>
