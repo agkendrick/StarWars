@@ -1,13 +1,11 @@
 <script setup lang="ts">
   import { useRoute, RouterLink } from 'vue-router'
-  import { ref } from 'vue'
   import { getResourceTypeFromUrl, getIdFromUrl } from '@/utils/helpers'
   import { usePeopleStore } from '@/stores/people'
   import { useFilmStore } from '@/stores/film'
   import { useVehicleStore } from '@/stores/vehicle'
   import { useStarshipStore } from '@/stores/starship'
 
-  const loading = ref(true)
   const route = useRoute()
   const { getPerson } = usePeopleStore()
   const { getFilmsFromLinks } = useFilmStore()

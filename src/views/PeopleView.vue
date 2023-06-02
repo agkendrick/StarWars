@@ -6,9 +6,7 @@
 
     const { getPeople } = usePeopleStore()
 
-    const people = await getPeople()
-
-    const { results, next, previous } = people
+    const { results, next, previous } = await getPeople()
 
     const displayNames = {
         name: "Name",
